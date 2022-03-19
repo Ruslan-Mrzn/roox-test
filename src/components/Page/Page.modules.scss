@@ -1,0 +1,18 @@
+.main {
+  width: 665px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  align-items: stretch;
+}
+
+.sort {
+  flex: none;
+  width: 152px;
+  background-color: #BDBDBD;
+}
+
+.content {
+  padding: 19px 34px;
+}
