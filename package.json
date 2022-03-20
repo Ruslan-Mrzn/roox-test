@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "тестовое задание",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx webpack serve"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ruslan-Mrzn/roox-test.git"
