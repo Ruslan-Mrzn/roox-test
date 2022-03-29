@@ -1,6 +1,7 @@
 import style from './Page.modules.scss'
 import Header from '../Header/Header'
 import UsersList from '../UsersList/UsersList'
+import UsersListItem from '../UsersListItem/UsersListItem'
 
 const Page = () => {
   return (

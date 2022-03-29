@@ -1,0 +1,19 @@
+.info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoRow {
+  display: flex;
+  gap: 8px;
+}
+
+.infoСharacteristic {
+  color: #A3A3A3;
+}
+
+.infoValue {
+  color: #000;
+}
