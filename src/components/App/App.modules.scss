@@ -1,0 +1,32 @@
+.main {
+  width: 665px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  align-items: stretch;
+}
+
+.subtitle {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.sort {
+  flex: none;
+  width: 152px;
+  background-color: #BDBDBD;
+  padding: 35px 21px;
+}
+
+.content {
+  padding: 19px 59px 19px 34px;
+  flex-grow: 1;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: flex-start;
+}

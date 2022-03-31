@@ -1,20 +1,14 @@
-import React from 'react'
+import { FC } from 'react'
 import style from './UsersList.modules.scss'
 import '../../index.css'
-import api from '../../utils/Api'
 import UsersListItem from '../UsersListItem/UsersListItem'
 import { IUser } from '../UsersListItem/UsersListItem'
-const UsersList = () => {
 
-  const [users, setUsers] = React.useState([])
 
-  React.useEffect(() => {
-    api.getUsers()
-      .then(users => {
-        console.log(users)
-        setUsers(users)
-      })
-  }, [])
+interface IUsersListProps {
+  users: Array<IUser>
+}
+const UsersList:FC<IUsersListProps> = ({users}) => {
 
   return (
     <ul className={style.list}>
