@@ -1,14 +1,17 @@
-import { FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import style from './UsersList.modules.scss'
-import '../../index.css'
 import UsersListItem from '../UsersListItem/UsersListItem'
+import ShowMoreLink from '../ShowMoreLink/ShowMoreLink'
 import { IUser } from '../UsersListItem/UsersListItem'
 
 
+
+
 interface IUsersListProps {
-  users: Array<IUser>
+  users: IUser[]|[]
+  setCurrentUser: Dispatch<SetStateAction<{}>>,
 }
-const UsersList:FC<IUsersListProps> = ({users}) => {
+const UsersList:FC<IUsersListProps> = ({users , setCurrentUser}) => {
 
   return (
     <ul className={style.list}>
@@ -21,7 +24,9 @@ const UsersList:FC<IUsersListProps> = ({users}) => {
         return (
           <li className={style.listItem} key={userFromServer.id}>
             <UsersListItem user={user} />
-            <a className={style.link + ' link'} href={`/user/${userFromServer.id}`}>Подробнее</a>
+            <div className={style.link}>
+              <ShowMoreLink setCurrentUser={setCurrentUser} currentUser={userFromServer} />
+            </div>
           </li>
         )
       } )}

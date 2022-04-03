@@ -1,0 +1,17 @@
+.main {
+  padding: 20px 36px 20px 36px;
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+  margin-bottom: 17px;
+}

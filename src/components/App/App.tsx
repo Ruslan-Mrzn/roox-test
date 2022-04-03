@@ -1,13 +1,18 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import api from '../../utils/Api'
 import style from './App.modules.scss'
-import Header from '../Header/Header'
-import UsersList from '../UsersList/UsersList'
+import { IUser } from '../UsersListItem/UsersListItem'
 import Button from '../Button/Button'
+import Main from '../Main/Main'
 
 const App = () => {
 
-  const [users, setUsers] = React.useState([])
+  const location = useLocation();
+
+  const [users, setUsers] = React.useState([]);
+  const [currentUser, setCurrentUser] = React.useState({});
+
 
   const sortUsersByCity = () => {
     let usersCopy = Object.assign([], users);
@@ -28,13 +33,15 @@ const App = () => {
   }
 
 
+
+
   React.useEffect(() => {
     api.getUsers()
       .then(users => {
         console.log(users)
         setUsers(users)
       })
-  }, [])
+  }, [location])
 
 
 
@@ -47,12 +54,8 @@ const App = () => {
           <Button type={'button'} text={'по городу'} bgColor={'blue'} onClick={sortUsersByCity}/>
           <Button type={'button'} text={'по компании'} bgColor={'blue'} onClick={sortUsersByCompany}  />
         </div>
-
       </aside>
-      <div className={style.content}>
-        <Header/>
-        <UsersList users={users}/>
-      </div>
+      <Main users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     </main>
   )
 }

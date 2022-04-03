@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.userData {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  row-gap: 10px;
+  border: 1px solid #F3F3F3;
+  border-radius: 8px;
+  padding: 20px 6px 20px 12px;
+
+  &:disabled input{
+    opacity: .3;
+  }
+}
+
+.submitButtonWrapper {
+  align-self: flex-end;
+}

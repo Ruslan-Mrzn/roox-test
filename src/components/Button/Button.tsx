@@ -6,12 +6,13 @@ interface IButtonProps {
   type: 'button' | 'submit',
   text: string,
   bgColor: 'green' | 'blue',
-  onClick?():void
+  onClick?():void,
+  disabled?: boolean,
 }
 
-const Button: FC<IButtonProps> = ({type, text, bgColor, onClick}) => {
+const Button: FC<IButtonProps> = ({type, text, bgColor, onClick, disabled}) => {
   return (
-    <button className={style.button + ` ${bgColor}` + ' button'} type={type} onClick={onClick}>
+    <button className={style.button + ` ${bgColor}` + ' button'} type={type} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   )
