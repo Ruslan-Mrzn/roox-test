@@ -10,7 +10,7 @@ const Comment:FC<ICommentProps> = ({label, name}) => {
   return (
     <label className={style.block}>
       <span className={style.label}>{label}</span>
-      <textarea className={style.textArea} name={`${name}`} ></textarea>
+      <textarea className={style.textArea} name={`${name}`}></textarea>
     </label>
   )
 }

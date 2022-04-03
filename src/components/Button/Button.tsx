@@ -11,6 +11,7 @@ interface IButtonProps {
 }
 
 const Button: FC<IButtonProps> = ({type, text, bgColor, onClick, disabled}) => {
+
   return (
     <button className={style.button + ` ${bgColor}` + ' button'} type={type} onClick={onClick} disabled={disabled}>
       {text}

@@ -21,8 +21,20 @@ const UserProfile:FC<IUserProfileProps> = ({userFromServer , isFormDisabled}) =>
     phone: userFromServer.phone,
     website: userFromServer.website,
   }
+
+  const submitUserData = () => {
+    const form:any = document.querySelector('form')
+    const userData = new FormData(form)
+    const userInfo:any = {}
+    for(let pair of userData.entries()) {
+      userInfo[pair[0]] = pair[1]
+    }
+    const result = JSON.stringify(userInfo)
+    console.log(result)
+  }
+
   return (
-    <form className={style.form}>
+    <form className={style.form} onSubmit={(evt)=> {evt.preventDefault(); submitUserData()}}>
       <fieldset className={style.userData} disabled={isFormDisabled}>
         <Input type={"text"} label={"Name"} value={currentUser.name} name={"name"} />
         <Input type={"text"} label={"User name"} value={currentUser.userName} name={"userName"} />
