@@ -2,9 +2,9 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import api from '../../utils/Api'
 import style from './App.modules.scss'
-import { IUser } from '../UsersListItem/UsersListItem'
-import Button from '../Button/Button'
 import Main from '../Main/Main'
+import Sorting from '../Sorting/Sorting'
+import Preloader from '../Preloader/Preloader'
 
 const App = () => {
 
@@ -12,6 +12,7 @@ const App = () => {
 
   const [users, setUsers] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
+  const [isLoading, setIsLoading] = React.useState(true)
 
 
   const sortUsersByCity = () => {
@@ -32,14 +33,12 @@ const App = () => {
     setUsers(usersCopy)
   }
 
-
-
-
   React.useEffect(() => {
     api.getUsers()
       .then(users => {
         console.log(users)
         setUsers(users)
+        setIsLoading(false)
       })
   }, [location])
 
@@ -48,14 +47,13 @@ const App = () => {
   return (
 
     <main className={style.main}>
-      <aside className={style.sort}>
-        <h2 className={style.subtitle}>Сортировка</h2>
-        <div className={style.buttonsWrapper}>
-          <Button type={'button'} text={'по городу'} bgColor={'blue'} onClick={sortUsersByCity}/>
-          <Button type={'button'} text={'по компании'} bgColor={'blue'} onClick={sortUsersByCompany}  />
-        </div>
-      </aside>
-      <Main users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <Sorting sortUsersByCity={sortUsersByCity} sortUsersByCompany={sortUsersByCompany}/>
+      {
+        isLoading ?
+        <Preloader />
+        :
+        <Main users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      }
     </main>
   )
 }
