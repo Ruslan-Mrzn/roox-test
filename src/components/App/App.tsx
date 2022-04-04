@@ -36,7 +36,6 @@ const App = () => {
   React.useEffect(() => {
     api.getUsers()
       .then(users => {
-        console.log(users)
         setUsers(users)
         setIsLoading(false)
       })
